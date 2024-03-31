@@ -1,0 +1,166 @@
+.flexbox-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  row-gap: 20px;
+}
+.flexbox-item {
+  min-width: 280px;
+  min-height: 190px;
+  margin: 0px;
+  border: 2px solid #cecece;
+  border-radius: 5px;
+  background-color: #ffffff;
+  padding: 10px;
+}
+.assignedtasks img {
+  margin-bottom: 3px;
+}
+.taskp {
+  width: 255px;
+  background-color: #ffffff;
+  border: 2px solid #b1d6e7;
+  border-radius: 5px;
+  margin: 10px 0 0 0 !important;
+  padding: 10px;
+  color: #4169e1;
+}
+.taskp:hover {
+  background-color: #d4dfe4;
+  border: 2px solid #b1d6e7;
+  color: #4169e1;
+}
+
+.taskpclose {
+  background-color: #d8d8d8;
+  border: 2px solid #d8d8d8;
+  color: #4169e1;
+}
+.taskpclose:hover {
+  background-color: #cfcfcf;
+  border: 2px solid #d8d8d8;
+  color: #4169e1;
+}
+
+.tasklist {
+  margin-top: 20px;
+  border: 2px solid #b1d6e7;
+  border-radius: 10px;
+  padding: 12px;
+}
+.duedate {
+  border-top: 1px solid #c8d2d6;
+}
+.employee_edit {
+  margin: 2px;
+  width: 245px;
+  background-color: #ffffff;
+}
+.emailr {
+  margin: 10px 0 0 0;
+  background-color: #ffffff;
+  border: 2px solid #b1d6e7;
+  width: 255px;
+  color: #4169e1;
+  border-radius: 5px;
+  padding: 11px;
+}
+.emailr:hover {
+  background-color: #e0ebf0;
+  border: 2px solid #b1d6e7;
+  color: #4169e1;
+}
+
+.closeemail {
+  margin: 10px 0 0 0;
+  background-color: #d8d8d8;
+  border: 2px solid #d8d8d8;
+  width: 255px;
+  color: #4169e1;
+  border-radius: 5px;
+  padding: 11px;
+}
+.closeemail:hover {
+  background-color: #cfcfcf;
+  border: 2px solid #d8d8d8;
+  color: #4169e1;
+}
+
+.emailform {
+  border: 2px solid #b1d6e7;
+  background-color: #e4f1f7;
+  border-radius: 10px;
+  margin: 20px 0px;
+  padding: 10px;
+}
+.emailform input {
+  margin: 2px;
+  width: 255px;
+  background-color: #ffffff !important;
+}
+.emailform p {
+  margin: 0;
+  padding: 5px;
+}
+.emailcancel {
+  background-color: #bfbfbf !important;
+}
+.emailcancel:hover {
+  background-color: #8b8b8b !important;
+}
+.emailsend {
+  background-color: #91d0a2 !important;
+}
+.emailsend:hover {
+  background-color: #58a76d !important;
+}
+
+#addnew {
+  float: right;
+  font-weight: bold;
+}
+
+#addnewform {
+  text-align: center;
+  margin-bottom: 30px;
+}
+#addnewform input {
+  margin: 2px;
+  width: 245px;
+  background-color: #ffffff;
+}
+
+#savenew {
+  margin: 10px;
+  background-color: #91d0a2 !important;
+}
+#savenew:hover {
+  background-color: #58a76d !important;
+}
+#cancelnew {
+  margin: 10px;
+  background-color: #bfbfbf !important;
+}
+#cancelnew:hover {
+  background-color: #8b8b8b !important;
+}
+.assigntaskdesc {
+	padding-left: 5px;
+}
+.assigntaskpastdue {
+	background-color: #ffdada;
+	color: #721c24;
+	padding-left: 5px;
+}
+
+.assigntaskcurrent {
+	background-color: #fcfadd;
+	color: #856404;
+	padding-left: 5px;
+}
+.assigntaskdone {
+  background-color: #c8f0c8;
+  color: #435844;
+	padding-left: 5px;
+}

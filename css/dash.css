@@ -1,0 +1,137 @@
+#valueChart300 { display: block; }
+#valueChart600 { display: none; }
+#valueChart900 { display: none; }
+
+@media screen and (max-width: 768px) {
+  #valueChart300 { display: none; }
+  #valueChart600 { display: block; }
+  #valueChart900 { display: none; }
+}
+
+@media screen and (max-width: 425px) {
+  #valueChart300 { display: none; }
+  #valueChart600 { display: none; }
+  #valueChart900 { display: block; }
+}
+
+#valueChart {
+	margin-bottom: 25px;
+}
+#progresschart {
+  margin-top: 51px;
+}
+.container1 {
+  width: 100%;
+}
+.container2 {
+  width: 100%;
+}
+.box {
+  width: 50%;
+  float: left;
+  padding: 10px;
+}
+.valbar {
+  background-color: #519cd5;
+  padding: 5px;
+  margin: 9px;
+  border-radius: 5px;
+  color: #FFFFFF;
+  font: 14px sans-serif;
+  text-align: center;
+}
+.valbar:hover {
+  filter: brightness(115%);
+}
+.valas {
+  margin: 0;
+  padding: 0;
+}
+.page-id-12 .page-header {
+  display: none !important;
+}
+/* This does nothing */
+canvas {
+  width: 100%;
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3px; 
+}
+.percent {
+  margin: 0 5px;
+  font: 11px sans-serif;
+  width: 30px;
+  text-align: right;
+}
+.progress_dot {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  margin: 0 1px;
+}
+.green_dot {
+  background-color: #72c585;
+  border: 1px solid #3f9a53;
+}
+.yellow_dot {
+  background-color: #ffe181;
+  border: 1px solid #ffd655;
+}
+.red_dot {
+  background-color: #ff6666;
+  border: 1px solid #ff3333;
+}
+.chapterdashbars {
+  background-color: #FFFFFF;
+  padding: 5px 2px 5px 5px;
+  margin: 1px;
+  border-radius: 5px;
+  color: #519cd5;
+  border: 1px solid #519cd5;
+  font: 12px sans-serif;
+  text-align: left;
+  width: 215px;
+}
+.chapterdashbars:hover {
+  background-color: #519cd5;
+  color: #FFFFFF;
+}
+.w3-light-grey { border: 2px solid #72c585; background-color:#f1f1f1!important }
+.w3-round { border-radius: 25px }
+.w3-container { padding:0.01em 16px }
+.w3-panel { margin-top:16px;margin-bottom:16px }
+.w3-green { color:#fff!important;background-color:#72c585!important; text-align: right; }
+
+@media (max-width: 1200px) {
+  .progress_dot {
+    display: none;
+  }
+  .chapterdashbars {
+    width: 100%;
+  }
+  .chapterdashas {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .box {
+    width: 100%;
+  }
+  .progress_dot {
+    display: none;
+  }
+  .chapterdashbars {
+    width: 100%;
+  }
+  .chapterdashas {
+    width: 100%;
+  }
+}
+
+#primary {
+	margin-top: 0px !important;
+}

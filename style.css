@@ -1,0 +1,166 @@
+/*
+ Theme Name:   Astra Child Theme
+ Theme URI:
+ Description:
+ Author:       tesdadministrator
+ Author URI:   https://www.theexitstrategydashboard.com
+ Template:     astra
+ Version:      1.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+
+ /* == Add your own styles below this line ==
+--------------------------------------------*/
+
+@media screen and (max-width: 425px) {
+  .custom-logo {
+    width: 250px;
+  }
+  .site-title {
+    font-size: 18px;
+  }
+}
+
+h1 {
+  margin: 0 0 20px 0 !important;
+}
+h2 {
+  text-align: center !important;
+  margin: 20px 0 0 0;
+}
+h3 {
+  text-align: center !important;
+  margin: 0 !important;
+}
+h4 {
+  text-align: center !important;
+  margin: 10px 0 5px 0 !important;
+}
+a {
+  text-decoration: none !important;
+}
+
+.saveedit {
+  background-color: #91d0a2 !important;
+}
+.saveedit:hover {
+  background-color: #58a76d !important;
+}
+.canceledit {
+  background-color: #bfbfbf !important;
+}
+.canceledit:hover {
+  background-color: #8b8b8b !important;
+}
+
+.chapterlist li {
+  line-height: 1.2;
+}
+
+label {
+  cursor: pointer;
+}
+
+.savedDiv {
+  background-color: #58a76d;
+  width: 200px;
+  padding: 20px;
+  color: #FFFFFF;
+  font: 18px sans-serif;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  position: fixed;
+  top: 120px;
+  right: 20%;
+  z-index: 3000;
+  display: none;
+}
+
+.subscribe-page-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+}
+.subscribe-image-column {  
+	flex: 1;
+}
+.subscribe-description-column {  
+	flex: 1;
+}
+.subscribe-plans-box {  
+	border: 1px solid #dddddd;  
+	border-radius: 7px;  
+	text-align: center;  
+	padding: 7px;  
+	margin: 8px;	
+	  flex: 1;
+	  display: flex;
+	  flex-direction: column;
+	  flex-basis: 40%;
+}
+@media screen and (max-width: 768px) {  
+	.subscribe-description-column {    
+		order: -1;  
+	}  
+	.subscribe-image-column {  
+		flex-basis:500px;  
+	}
+	.subscribe-plans-box {  
+	  flex-basis: 100%;
+	}
+}
+.astri {
+	font: 12px sans-serif;
+}
+.subscribe-buttons {  
+	display: flex;  
+	flex-direction: column;  
+	justify-content: space-evenly;
+}
+.subscribe-button {  
+	margin: 10px;  
+	align-items: center;  
+	background-color: #0A66C2;  
+	border: 0;  
+	border-radius: 100px;  
+	box-sizing: border-box;  
+	color: #ffffff;  
+	cursor: pointer;  
+	display: inline-flex;  
+	font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;  
+	font-size: 16px;  
+	font-weight: 600;  
+	justify-content: center;  
+	line-height: 20px;  
+	max-width: 480px;  
+	min-height: 40px;  
+	min-width: 0px;  
+	overflow: hidden;  
+	padding: 0px;  
+	padding-left: 20px;  
+	padding-right: 20px;  
+	text-align: center;  
+	touch-action: manipulation;  
+	transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;  
+	user-select: none;  
+	-webkit-user-select: none;  
+	vertical-align: middle;
+}
+.subscribe-button:hover,
+.subscribe-button:focus {  
+	background-color: #16437E;  
+	color: #ffffff;
+}
+.subscribe-button:active {  
+	background: #09223b;  
+	color: rgb(255, 255, 255, .7);
+}
+.subscribe-button:disabled {  
+	cursor: not-allowed;  
+	background: rgba(0, 0, 0, .08);  
+	color: rgba(0, 0, 0, .3);
+}
+.subscribe-h2 {
+	margin: 0 0 20px 0 !important;
+}
+

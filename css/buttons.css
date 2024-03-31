@@ -1,0 +1,119 @@
+#checkedtaskbtns {
+  font: 14px sans-serif;
+  margin: 0 0 10px 0;
+}
+.checkedtaskbtn {
+  height: 25px;
+  padding: 0;
+  margin: 0;
+  font: 12px sans-serif;
+  border: 1px solid #519cd5;
+  color: #519cd5 !important;
+  background-color: #ffffff !important;
+}
+.checkedtaskbtn:hover {
+  color: #ffffff !important;
+  background-color: #519cd5 !important;
+}
+.checkedtaskbtn:link {
+  color: #519cd5 !important;
+  background-color: #519cd5 !important;
+}
+.checkedtaskbtn:visited {
+  color: #519cd5 !important;
+  background-color: #519cd5 !important;
+}
+.checkedtaskbtn:active {
+  color: #519cd5 !important;
+  background-color: #519cd5 !important;
+}
+
+.saveeditallbtn {
+  width: 95px;
+  /* background-color: #91d0a2 !important; */
+}
+.saveeditallbtn:hover {
+  /* background-color: #58a76d !important; */
+}
+.removeeditallbtn {
+  width: 60px;
+  /* background-color: #f49d96 !important; */
+}
+.removeeditallbtn:hover {
+  /* background-color: #ca655e !important; */
+}
+.assigneditallbtn {
+  width: 50px;
+  /* background-color: #c99ac6 !important; */
+}
+.assigneditallbtn:hover {
+  /* background-color: #ab73a7 !important; */
+}
+.assigneditallbtn {
+  width: 50px;
+  /* background-color: #c99ac6 !important; */
+}
+.sendeditallbtn {
+  width: 40px;
+  /* background-color: #8abedd !important; */
+}
+.sendeditallbtn:hover {
+  /* background-color: #509cd8 !important; */
+}
+.assigneditallbtn:hover {
+  /* background-color: #ab73a7 !important; */
+}
+.dateeditallbtn {
+  width: 61px;
+  /* background-color: #f7bb8b !important; */
+}
+.dateeditallbtn:hover {
+  /* background-color: #c58c5e !important; */
+}
+
+#checkedtaskselect {
+  text-align: left;
+  margin: 0 10px 10px 0;
+  padding: 7px;
+  border: 1px solid #b1d6e7;
+  background-color: #e4f1f7;
+}
+#checkedtasksdate {
+  padding: 7px;
+  border: 1px solid #b1d6e7;
+  background-color: #e4f1f7;
+  margin: 0 10px 10px 0;  
+}
+#checkedtasksend {
+  text-align: left;
+  margin: 0 10px 10px 0;
+}
+
+.emailform {
+  border: 2px solid #b1d6e7;
+  background-color: #e4f1f7;
+  border-radius: 10px;
+  margin: 20px 0px;
+  padding: 10px;
+}
+.emailform input {
+  margin: 2px;
+  width: 255px;
+  background-color: #ffffff !important;
+}
+.emailform p {
+  margin: 0;
+  padding: 5px;
+}
+.emailcancel {
+  background-color: #bfbfbf !important;
+}
+.emailcancel:hover {
+  background-color: #8b8b8b !important;
+}
+.emailsend {
+  background-color: #91d0a2 !important;
+}
+.emailsend:hover {
+  background-color: #58a76d !important;
+}

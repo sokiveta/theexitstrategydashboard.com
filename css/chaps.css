@@ -1,0 +1,27 @@
+[v-cloak] { display: none; }
+.box {
+  width: 50%;
+  float: left;
+  padding: 10px;
+}
+@media (max-width: 768px) {
+  .box {
+    width: 100%;
+  }
+}
+.chapterbars {
+  background-color: #519cd5;
+  padding: 8px 17px;
+  margin: 9px;
+  border-radius: 5px;
+  color: #FFFFFF;
+  font: bold 16px sans-serif;
+  text-align: left;
+}
+.chapterbars:hover {
+  filter: brightness(115%);
+}
+.chapteras {
+  margin: 0;
+  padding: 0;
+}
