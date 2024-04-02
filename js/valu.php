@@ -20,148 +20,292 @@ const dateArray = [];
 const plusArray = [];
 const minuArray = [];
 
-// function saveRow (id, label) {
-//   $.ajax({
-//     url: '<?=$dir?>/ajax_valu.php',
-//     method: 'post',
-//     data: {action:'save',user_id:user_id,id:id,label:label,demo:demo},
-//     cache: false,
-//     success: function(data) {
-//       console.log(data);
-//       SuccessMessage('editSaved');
-//     }
-//   });
-// }
+async function saveRow (id, label) {  
+  let params = { user_id, demo, id, label }
+  try { 
+    const response = await fetch('<?=$dir?>/api/valu_save.php', { 
+      method: 'POST', 
+      body: JSON.stringify(params) 
+    });    
+    if (!response.ok) { 
+      console.log('Not OK');
+      return; 
+    } 
+    const output = await response.json(); 
+    console.log(output);    
+    SuccessMessage('editSaved');
+    // window.location.reload();        
+  } catch (error) {
+    console.log(error);
+  }
+  // $.ajax({
+  //   url: '<?=$dir?>/ajax_valu.php',
+  //   method: 'post',
+  //   data: {action:'save',user_id:user_id,id:id,label:label,demo:demo},
+  //   cache: false,
+  //   success: function(data) {
+  //     console.log(data);
+  //     SuccessMessage('editSaved');
+  //   }
+  // });
+}
 
-// function newRow (type,label) {
-//   $.ajax({
-//     url: '<?=$dir?>/ajax_valu.php',
-//     method: 'post',
-//     data: {action:'new',user_id:user_id,type:type,label:label,demo:demo},
-// 		cache: false,
-// 		success: function(data){
-//       console.log(data);
-//       SuccessMessage('newSaved');
-//       $(document).ajaxStop(function(){
-//         window.location.reload();
-//       });
+async function newRow (type,label) {
+  let params = { user_id, demo, type, label }
+  try { 
+    const response = await fetch('<?=$dir?>/api/valu_new.php', { 
+      method: 'POST', 
+      body: JSON.stringify(params) 
+    });    
+    if (!response.ok) { 
+      console.log('Not OK');
+      return; 
+    } 
+    const output = await response.json(); 
+    console.log(output);    
+    SuccessMessage('newSaved');
+    window.location.reload();        
+  } catch (error) {
+    console.log(error);
+  }
+  // $.ajax({
+  //   url: '<?=$dir?>/ajax_valu.php',
+  //   method: 'post',
+  //   data: {action:'new',user_id:user_id,type:type,label:label,demo:demo},
+	// 	cache: false,
+	// 	success: function(data){
+  //     console.log(data);
+  //     SuccessMessage('newSaved');
+  //     $(document).ajaxStop(function(){
+  //       window.location.reload();
+  //     });
+	// 	}
+  // });
+}
 
-// 		}
-//   });
-// }
+async function removeRow (id) {
+  let params = { user_id, demo, id }
+  try { 
+    const response = await fetch('<?=$dir?>/api/valu_remove.php', { 
+      method: 'POST', 
+      body: JSON.stringify(params) 
+    });    
+    if (!response.ok) { 
+      console.log('Not OK');
+      return; 
+    } 
+    const output = await response.json(); 
+    console.log(output);    
+    SuccessMessage('removeSaved');
+    // window.location.reload();        
+  } catch (error) {
+    console.log(error);
+  }
+  // $.ajax({
+  //   url: '<?=$dir?>/ajax_valu.php',
+  //   method: 'post',
+  //   data: {action:'remove',user_id:user_id,id:id,demo:demo},
+	// 	cache: false,
+	// 	success: function(data){
+  //     console.log(data);
+  //     SuccessMessage('removeSaved');
+  //   }
+  // });
+}
 
-// function removeRow (id) {
-//   $.ajax({
-//     url: '<?=$dir?>/ajax_valu.php',
-//     method: 'post',
-//     data: {action:'remove',user_id:user_id,id:id,demo:demo},
-// 		cache: false,
-// 		success: function(data){
-//       console.log(data);
-//       SuccessMessage('removeSaved');
-//     }
-//   });
-// }
+async function saveDate (col, date) {
+  let params = { user_id, demo, col, date }
+  try { 
+    const response = await fetch('<?=$dir?>/api/valu_savedate.php', { 
+      method: 'POST', 
+      body: JSON.stringify(params) 
+    });    
+    if (!response.ok) { 
+      console.log('Not OK');
+      return; 
+    } 
+    const output = await response.json(); 
+    console.log(output);    
+    SuccessMessage('dateSaved');
+    // window.location.reload();        
+  } catch (error) {
+    console.log(error);
+  }
+  // $.ajax({
+  //   url: '<?=$dir?>/ajax_valu.php',
+  //   method: 'post',
+  //   data: {action:'savedate',user_id:user_id,col:col,date:newdate,demo:demo},
+	// 	cache: false,
+	// 	success: function(data){
+  //     console.log(data);
+  //     SuccessMessage('dateSaved');
+  //   }
+  // });
+}
 
-function updateEbitda (col, ebitda) {
+async function updateEbitda (col, ebitda) {
+  let params = { user_id, demo, col, ebitda }
+  try { 
+    const response = await fetch('<?=$dir?>/api/valu_ebitda.php', { 
+      method: 'POST', 
+      body: JSON.stringify(params) 
+    });    
+    if (!response.ok) { 
+      console.log('Not OK');
+      return; 
+    } 
+    const output = await response.json(); 
+    console.log(output);    
+    // SuccessMessage('dateSaved');
+    // window.location.reload();        
+  } catch (error) {
+    console.log(error);
+  }
   console.log(window.location.href);
-  $.ajax({
-    url: '<?=$dir?>/ajax_valu.php',
-    method: 'post',
-    data: {action:'ebitda',user_id:user_id,col:col,ebitda:ebitda,demo:demo},
-		cache: false,
-		success: function(data){
-      console.log(data);
-    }
-  });
+  // $.ajax({
+  //   url: '<?=$dir?>/ajax_valu.php',
+  //   method: 'post',
+  //   data: {action:'ebitda',user_id:user_id,col:col,ebitda:ebitda,demo:demo},
+	// 	cache: false,
+	// 	success: function(data){
+  //     console.log(data);
+  //   }
+  // });
 }
 
-function updateValueVals (col_id, row_id, value) {
-  $.ajax({
-    url: '<?=$dir?>/ajax_valu.php',
-    method: 'post',
-    data: {action:'valuevals',user_id:user_id,col_id:col_id,row_id:row_id,value:value,demo:demo},
-		cache: false,
-		success: function(data){
-      console.log(data);
-    }
-  });
+async function updateValueVals (col_id, row_id, value) {
+  let params = { user_id, demo, col_id, row_id, value }
+  try { 
+    const response = await fetch('<?=$dir?>/api/valu_valuevals.php', { 
+      method: 'POST', 
+      body: JSON.stringify(params) 
+    });    
+    if (!response.ok) { 
+      console.log('Not OK');
+      return; 
+    } 
+    const output = await response.json(); 
+    console.log(output);    
+    // SuccessMessage('dateSaved');
+    // window.location.reload();        
+  } catch (error) {
+    console.log(error);
+  }
+  // $.ajax({
+  //   url: '<?=$dir?>/ajax_valu.php',
+  //   method: 'post',
+  //   data: {action:'valuevals',user_id:user_id,col_id:col_id,row_id:row_id,value:value,demo:demo},
+	// 	cache: false,
+	// 	success: function(data){
+  //     console.log(data);
+  //   }
+  // });
 }
 
-function updateMultiplier (col, multiplier) {
-  $.ajax({
-    url: '<?=$dir?>/ajax_valu.php',
-    method: 'post',
-    data: {action:'multiplier',user_id:user_id,col:col,multiplier:multiplier,demo:demo},
-		cache: false,
-		success: function(data){
-      console.log(data);
-    }
-  });
+async function updateMultiplier (col, multiplier) {
+  let params = { user_id, demo, col, multiplier }
+  try { 
+    const response = await fetch('<?=$dir?>/api/valu_multiplier.php', { 
+      method: 'POST', 
+      body: JSON.stringify(params) 
+    });    
+    if (!response.ok) { 
+      console.log('Not OK');
+      return; 
+    } 
+    const output = await response.json(); 
+    console.log(output);    
+    // SuccessMessage('dateSaved');
+    // window.location.reload();        
+  } catch (error) {
+    console.log(error);
+  }
+  // $.ajax({
+  //   url: '<?=$dir?>/ajax_valu.php',
+  //   method: 'post',
+  //   data: {action:'multiplier',user_id:user_id,col:col,multiplier:multiplier,demo:demo},
+	// 	cache: false,
+	// 	success: function(data){
+  //     console.log(data);
+  //   }
+  // });
 }
 
-function updateEstimatedValue (col, estimated_value) {
-  $.ajax({
-    url: '<?=$dir?>/ajax_valu.php',
-    method: 'post',
-    data: {action:'estimated_value',user_id:user_id,col:col,estimated_value:estimated_value,demo:demo},
-		cache: false,
-		success: function(data){
-      console.log(data);
-    }
-  });
+async function updateEstimatedValue (col, estimated_value) {
+  let params = { user_id, demo, col, estimated_value }
+  try { 
+    const response = await fetch('<?=$dir?>/api/valu_estimated_value.php', { 
+      method: 'POST', 
+      body: JSON.stringify(params) 
+    });    
+    if (!response.ok) { 
+      console.log('Not OK');
+      return; 
+    } 
+    const output = await response.json(); 
+    console.log(output);    
+    // SuccessMessage('dateSaved');
+    // window.location.reload();        
+  } catch (error) {
+    console.log(error);
+  }
+  // $.ajax({
+  //   url: '<?=$dir?>/ajax_valu.php',
+  //   method: 'post',
+  //   data: {action:'estimated_value',user_id:user_id,col:col,estimated_value:estimated_value,demo:demo},
+	// 	cache: false,
+	// 	success: function(data){
+  //     console.log(data);
+  //   }
+  // });
 }
 
-function updateDifference (difference) {
-  $.ajax({
-    url: '<?=$dir?>/ajax_valu.php',
-    method: 'post',
-    data: {action:'difference',user_id:user_id,difference:difference,demo:demo},
-		cache: false,
-		success: function(data){
-      console.log(data);
-    }
-  });
+async function updateDifference (difference) {
+  let params = { user_id, demo, difference }
+  try { 
+    const response = await fetch('<?=$dir?>/api/valu_difference.php', { 
+      method: 'POST', 
+      body: JSON.stringify(params) 
+    });    
+    if (!response.ok) { 
+      console.log('Not OK');
+      return; 
+    } 
+    const output = await response.json(); 
+    console.log(output);    
+    // SuccessMessage('dateSaved');
+    // window.location.reload();        
+  } catch (error) {
+    console.log(error);
+  }
+  // $.ajax({
+  //   url: '<?=$dir?>/ajax_valu.php',
+  //   method: 'post',
+  //   data: {action:'difference',user_id:user_id,difference:difference,demo:demo},
+	// 	cache: false,
+	// 	success: function(data){
+  //     console.log(data);
+  //   }
+  // });
 }
 
-function saveDate (col, newdate) {
-  $.ajax({
-    url: '<?=$dir?>/ajax_valu.php',
-    method: 'post',
-    data: {action:'savedate',user_id:user_id,col:col,date:newdate,demo:demo},
-		cache: false,
-		success: function(data){
-      console.log(data);
-      SuccessMessage('dateSaved');
-    }
-  });
-}
 
 
 
 
-
-// $( function () {
-document.addEventListener('DOMContentLoaded', function () {
-
+$( function () {
   for (let c = 1; c <= 5; c++) {
 
     // put datepicker on date field
     let dateId = "#date_" + colArray[c];
     // let dateIc = "#date_" + c;
     $(dateId).datepicker();
-    // document.getElementById(dateId).datepicker()
 
     // watch for change on date
-    // $(dateId).on('change', function () { // dateIc
-    //   dateArray[c] = new Date($(dateId).val()).toJSON().slice(0, 10); // dateIc
-    //   saveDate(c,dateArray[c]);
-    // });
-    document.getElementById(dateId).addEventListener('change',function () { // dateIc
-      dateArray[c] = new Date(document.getElementById(dateId).value()).toJSON().slice(0, 10); // dateIc
-      // ajax
+    $(dateId).on('change', function () { // dateIc
+      dateArray[c] = new Date($(dateId).val()).toJSON().slice(0, 10); // dateIc
       saveDate(c,dateArray[c]);
-    })
+    });
 
     // Expand and collapse collumn
     let colShow = "column_show_" + c;
@@ -235,7 +379,7 @@ function numbersCalculate (e) {
   const add_vals = [];
   const ded_vals = [];
 
-  console.log("column: "+column);
+console.log("column: "+column);
 
   // get values from everywhere else to calculate totals
   const inputvalues = document.querySelectorAll(".valinput");
@@ -249,7 +393,6 @@ function numbersCalculate (e) {
         let r = valueId[2]; // id/row
         if (c === column && r === rowumn) {
           // save to database
-          // Ajax
           updateValueVals(c,r,v);
         }
         let add_val = {"col": c, "row": r, "val": v}
@@ -261,7 +404,6 @@ function numbersCalculate (e) {
         let r = valueId[2]; // id/row
         if (c === column && r === rowumn) {
           // save to database
-          // Ajax
           updateValueVals(c,r,v);
         }
         let ded_val = {"col": c, "row": r, "val": v}
@@ -302,9 +444,7 @@ function numbersCalculate (e) {
   let ebitdavar = "#ebitda_"+column;
   let totsebi = document.querySelector("#ebitda_" + column);
   let ebitdaint = totsebi.value.replace(/[($,)]/g,'');
-  // Ajax
   updateEbitda(column,ebitdaint);
-
   if (ebitdaint < 0)  { ebitdaint = 0; }
   ebitdaint  = parseInt(ebitdaint);
   subaddtots = parseInt(subaddtots);
@@ -328,10 +468,8 @@ function numbersCalculate (e) {
   let tots = document.querySelector("#val_total_" + column);
   if (tots) {
 	tots.value = '$' + numberFormatter.format(total);
-  } 
-  // Ajax
+  }
   updateEstimatedValue(column, total);
-
 }
 
 const userinput = document.querySelectorAll(".valinput");
@@ -351,7 +489,6 @@ function differenceCalculate () {
   let dif = max - min;
   let diff = document.querySelector('#difference');
   diff.value = '$' + numberFormatter.format(dif);
-  // Ajax
   updateDifference(dif);
 }
 
@@ -362,7 +499,6 @@ function multiplierCalculate (e) {
   let multiplier = e.target.value;
 
   // Database
-  // Ajax
   updateMultiplier(column,multiplier);
 
   // EBITDA
@@ -389,7 +525,6 @@ function multiplierCalculate (e) {
   if (tots) {
 	tots.value = '$' + numberFormatter.format(total);
   }
-  // Ajax
   updateEstimatedValue(column, total);
 
   // Difference
@@ -445,7 +580,7 @@ canc.forEach(c => {
   c.addEventListener('click', cancelEdit);
 });
 
-async function removeEdit (e) {
+function removeEdit (e) {
   let plainId = e.target.id;
   resultId = plainId.split('_');
   plainId = plainId.substring(1);
@@ -458,29 +593,10 @@ async function removeEdit (e) {
   if (Number.isInteger(rowId) && rowId > 0) {
     if (confirm("You are about to remove this row. Continue?")) {
       console.log('Yes!');
-      let id = rowId;
-      // ajax
-      // removeRow(rowId);
-      const removeRow = { user_id, demo, id }  
-      try { 
-        const response = await fetch('<?=$dir?>/api/valu_remove.php', { 
-          method: 'POST', 
-          body: JSON.stringify(removeRow) 
-        });    
-        if (!response.ok) { 
-          console.log('Not OK');
-          return; 
-        } 
-        const output = await response.json(); 
-        console.log(output);    
-        SuccessMessage('removeSaved');
-        window.location.reload();        
-      } catch (error) {
-        console.log(error);
-      }
-      // $(document).ajaxStop(function(){
-      //   window.location.reload();
-      // });
+      removeRow(rowId);
+      $(document).ajaxStop(function(){
+        window.location.reload();
+      });
     } else {
       console.log('Cancel!');
     }
@@ -491,7 +607,7 @@ removetext.forEach(c => {
   c.addEventListener('click', removeEdit);
 });
 
-async function saveEdit (e) {
+function saveEdit (e) {
   let plainId = e.target.id;
   plainId  = plainId.substring(1);
   resultId = plainId.split('_');
@@ -503,29 +619,10 @@ async function saveEdit (e) {
   edittext.innerHTML = textarea.value;
   let rowId = Number(resultId[2]);
   if (Number.isInteger(rowId) && rowId > 0) {
-    // ajax
-    // saveRow(rowId, textarea.value);    
-    // data: {action:'save',user_id:user_id,id:id,label:label,demo:demo},
-    let id = rowId;
-    let label = textarea.value;
-    const saveRow = { user_id, demo, id, label };
-    try { 
-      const response = await fetch('<?=$dir?>/api/valu_save.php', { 
-        method: 'POST', 
-        body: JSON.stringify(saveRow) 
-      });    
-      if (!response.ok) { 
-        console.log('Not OK');
-        return; 
-      } 
-      const output = await response.json(); 
-      console.log(output);    
-      SuccessMessage('editSaved');
-      // window.location.reload();        
-    } catch (error) {
-      console.log(error);
-    }
+    saveRow(rowId, textarea.value);
+
   }
+
 };
 const savetext = document.querySelectorAll(".savetext");
 savetext.forEach(c => {
@@ -549,30 +646,10 @@ function hideNewAdd (e) {
   });
   addnewadd.style.display = 'block';
 }
-async function saveNewAdd (e) {
+function saveNewAdd (e) {
   const id = e.target.id;
   const addtext = document.getElementById("new_addition_text");
-  const type = 'a';
-  const label = addtext.value;
-  // ajax
-  // newRow('a',addtext.value);
-  const newRow = { user_id, demo, type, label }  
-  try { 
-    const response = await fetch('<?=$dir?>/api/valu_new.php', { 
-      method: 'POST', 
-      body: JSON.stringify(newRow) 
-    });    
-    if (!response.ok) { 
-      console.log('Not OK');
-      return; 
-    } 
-    const output = await response.json(); 
-    console.log(output);    
-    SuccessMessage('editSaved');
-    // window.location.reload();        
-  } catch (error) {
-    console.log(error);
-  }
+  newRow('a',addtext.value);
   newAddRow.forEach(nwa => {
     nwa.style.display = 'none';
   });
@@ -600,30 +677,10 @@ function hideNewDed (e) {
   });
   addnewded.style.display = 'block';
 }
-async function saveNewDed (e) {
+function saveNewDed (e) {
   const id = e.target.id;
   const dedtext = document.getElementById("new_deduction_text");
-  const type = 'd';
-  const label = dedtext.value;
-  // ajax
-  // newRow('d',dedtext.value);
-  const newRow = { user_id, demo, type, label }  
-  try { 
-    const response = await fetch('<?=$dir?>/api/valu_new.php', { 
-      method: 'POST', 
-      body: JSON.stringify(newRow) 
-    });    
-    if (!response.ok) { 
-      console.log('Not OK');
-      return; 
-    } 
-    const output = await response.json(); 
-    console.log(output);    
-    SuccessMessage('editSaved');
-    // window.location.reload();        
-  } catch (error) {
-    console.log(error);
-  }
+  newRow('d',dedtext.value);
   newDedRow.forEach(nwa => {
     nwa.style.display = 'none';
   });

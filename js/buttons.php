@@ -51,6 +51,7 @@ const completeAllChecked = async () => {
     if (confirm("The tasks with a checked box will be marked complete. Continue?")) {
       // markAllCompleted(completedTasks);
       const markAllCompleted = { user_id, demo, task_ids };
+
       try { 
         const response = await fetch('<?=$dir?>/api/buttons_markallcomplete.php', { 
           method: 'POST', 
@@ -67,6 +68,7 @@ const completeAllChecked = async () => {
       } catch (error) {
         console.log(error);
       }
+
     } else {
       console.log('Cancel!');
     }
@@ -96,8 +98,9 @@ const dateTask = async () => {
   });
   if (task_ids.length > 0) {
     if (confirm("The tasks with a checked box will be modified. Continue?")) {
-      const markAllDate = { user_id, demo, task_ids, duedate };
+
       try { 
+        const markAllDate = { user_id, demo, task_ids, duedate };
         const response = await fetch('<?=$dir?>/api/buttons_markallduedate.php', { 
           method: 'POST', 
           body: JSON.stringify(markAllDate) 
@@ -113,6 +116,7 @@ const dateTask = async () => {
       } catch (error) {
         console.log(error);
       }
+
     } else {
       console.log('Cancel!');
     }
@@ -144,8 +148,8 @@ const assignPerson = async (e) => {
   if (task_ids.length > 0) {
     if (confirm("The tasks with a checked box will be modified. Continue?")) {
       // markAllAssigned(completedTasks,employee_id);
-      const markAllAssigned = { user_id, demo, task_ids, employee_id };
       try { 
+        const markAllAssigned = { user_id, demo, task_ids, employee_id };
         const response = await fetch('<?=$dir?>/api/buttons_markallassigned.php', { 
           method: 'POST', 
           body: JSON.stringify(markAllAssigned) 
@@ -161,6 +165,7 @@ const assignPerson = async (e) => {
       } catch (error) {
         console.log(error);
       }
+
     } else {
       console.log('Cancel!');
     }
@@ -196,9 +201,10 @@ const emailCreate = async (e) => {
       let subject = "Exit Strategy Dashboard - Task List";
       let message  = "<p>" + document.getElementById('report_m').value + "</p>";
       if (to != "") {
-        const sendEmail = { user_id, demo, task_ids, email_from, to, cc, bcc, subject, message };
         // sendEmail(report_to, report_cc, report_bcc, report_m, checkedTasks);
+
         try { 
+          const sendEmail = { user_id, demo, task_ids, email_from, to, cc, bcc, subject, message };
           const response = await fetch('<?=$dir?>/api/buttons_sendemail.php', { 
             method: 'POST', 
             body: JSON.stringify(sendEmail) 
@@ -214,6 +220,7 @@ const emailCreate = async (e) => {
         } catch (error) {
           console.log(error);
         }
+        
       } else {
         console.log("ERROR: to");
       }
