@@ -20,65 +20,48 @@ const dateArray = [];
 const plusArray = [];
 const minuArray = [];
 
+// function saveRow (id, label) {
+//   $.ajax({
+//     url: '<?=$dir?>/ajax_valu.php',
+//     method: 'post',
+//     data: {action:'save',user_id:user_id,id:id,label:label,demo:demo},
+//     cache: false,
+//     success: function(data) {
+//       console.log(data);
+//       SuccessMessage('editSaved');
+//     }
+//   });
+// }
 
+// function newRow (type,label) {
+//   $.ajax({
+//     url: '<?=$dir?>/ajax_valu.php',
+//     method: 'post',
+//     data: {action:'new',user_id:user_id,type:type,label:label,demo:demo},
+// 		cache: false,
+// 		success: function(data){
+//       console.log(data);
+//       SuccessMessage('newSaved');
+//       $(document).ajaxStop(function(){
+//         window.location.reload();
+//       });
 
+// 		}
+//   });
+// }
 
-
-function saveRow (id, label) {
-  $.ajax({
-    url: '<?=$dir?>/ajax_valu.php',
-    method: 'post',
-    data: {action:'save',user_id:user_id,id:id,label:label,demo:demo},
-    cache: false,
-    success: function(data) {
-      console.log(data);
-      SuccessMessage('editSaved');
-    }
-  });
-}
-
-function newRow (type,label) {
-  $.ajax({
-    url: '<?=$dir?>/ajax_valu.php',
-    method: 'post',
-    data: {action:'new',user_id:user_id,type:type,label:label,demo:demo},
-		cache: false,
-		success: function(data){
-      console.log(data);
-      SuccessMessage('newSaved');
-      $(document).ajaxStop(function(){
-        window.location.reload();
-      });
-
-		}
-  });
-}
-
-function removeRow (id) {
-  $.ajax({
-    url: '<?=$dir?>/ajax_valu.php',
-    method: 'post',
-    data: {action:'remove',user_id:user_id,id:id,demo:demo},
-		cache: false,
-		success: function(data){
-      console.log(data);
-      SuccessMessage('removeSaved');
-    }
-  });
-}
-
-function saveDate (col, newdate) {
-  $.ajax({
-    url: '<?=$dir?>/ajax_valu.php',
-    method: 'post',
-    data: {action:'savedate',user_id:user_id,col:col,date:newdate,demo:demo},
-		cache: false,
-		success: function(data){
-      console.log(data);
-      SuccessMessage('dateSaved');
-    }
-  });
-}
+// function removeRow (id) {
+//   $.ajax({
+//     url: '<?=$dir?>/ajax_valu.php',
+//     method: 'post',
+//     data: {action:'remove',user_id:user_id,id:id,demo:demo},
+// 		cache: false,
+// 		success: function(data){
+//       console.log(data);
+//       SuccessMessage('removeSaved');
+//     }
+//   });
+// }
 
 function updateEbitda (col, ebitda) {
   console.log(window.location.href);
@@ -141,22 +124,44 @@ function updateDifference (difference) {
   });
 }
 
+function saveDate (col, newdate) {
+  $.ajax({
+    url: '<?=$dir?>/ajax_valu.php',
+    method: 'post',
+    data: {action:'savedate',user_id:user_id,col:col,date:newdate,demo:demo},
+		cache: false,
+		success: function(data){
+      console.log(data);
+      SuccessMessage('dateSaved');
+    }
+  });
+}
 
 
 
-$( function () {
+
+
+// $( function () {
+document.addEventListener('DOMContentLoaded', function () {
+
   for (let c = 1; c <= 5; c++) {
 
     // put datepicker on date field
     let dateId = "#date_" + colArray[c];
     // let dateIc = "#date_" + c;
     $(dateId).datepicker();
+    // document.getElementById(dateId).datepicker()
 
     // watch for change on date
-    $(dateId).on('change', function () { // dateIc
-      dateArray[c] = new Date($(dateId).val()).toJSON().slice(0, 10); // dateIc
+    // $(dateId).on('change', function () { // dateIc
+    //   dateArray[c] = new Date($(dateId).val()).toJSON().slice(0, 10); // dateIc
+    //   saveDate(c,dateArray[c]);
+    // });
+    document.getElementById(dateId).addEventListener('change',function () { // dateIc
+      dateArray[c] = new Date(document.getElementById(dateId).value()).toJSON().slice(0, 10); // dateIc
+      // ajax
       saveDate(c,dateArray[c]);
-    });
+    })
 
     // Expand and collapse collumn
     let colShow = "column_show_" + c;
@@ -230,7 +235,7 @@ function numbersCalculate (e) {
   const add_vals = [];
   const ded_vals = [];
 
-console.log("column: "+column);
+  console.log("column: "+column);
 
   // get values from everywhere else to calculate totals
   const inputvalues = document.querySelectorAll(".valinput");
@@ -244,6 +249,7 @@ console.log("column: "+column);
         let r = valueId[2]; // id/row
         if (c === column && r === rowumn) {
           // save to database
+          // Ajax
           updateValueVals(c,r,v);
         }
         let add_val = {"col": c, "row": r, "val": v}
@@ -255,6 +261,7 @@ console.log("column: "+column);
         let r = valueId[2]; // id/row
         if (c === column && r === rowumn) {
           // save to database
+          // Ajax
           updateValueVals(c,r,v);
         }
         let ded_val = {"col": c, "row": r, "val": v}
@@ -295,7 +302,9 @@ console.log("column: "+column);
   let ebitdavar = "#ebitda_"+column;
   let totsebi = document.querySelector("#ebitda_" + column);
   let ebitdaint = totsebi.value.replace(/[($,)]/g,'');
+  // Ajax
   updateEbitda(column,ebitdaint);
+
   if (ebitdaint < 0)  { ebitdaint = 0; }
   ebitdaint  = parseInt(ebitdaint);
   subaddtots = parseInt(subaddtots);
@@ -319,8 +328,10 @@ console.log("column: "+column);
   let tots = document.querySelector("#val_total_" + column);
   if (tots) {
 	tots.value = '$' + numberFormatter.format(total);
-  }
+  } 
+  // Ajax
   updateEstimatedValue(column, total);
+
 }
 
 const userinput = document.querySelectorAll(".valinput");
@@ -340,6 +351,7 @@ function differenceCalculate () {
   let dif = max - min;
   let diff = document.querySelector('#difference');
   diff.value = '$' + numberFormatter.format(dif);
+  // Ajax
   updateDifference(dif);
 }
 
@@ -350,6 +362,7 @@ function multiplierCalculate (e) {
   let multiplier = e.target.value;
 
   // Database
+  // Ajax
   updateMultiplier(column,multiplier);
 
   // EBITDA
@@ -376,6 +389,7 @@ function multiplierCalculate (e) {
   if (tots) {
 	tots.value = '$' + numberFormatter.format(total);
   }
+  // Ajax
   updateEstimatedValue(column, total);
 
   // Difference
@@ -431,7 +445,7 @@ canc.forEach(c => {
   c.addEventListener('click', cancelEdit);
 });
 
-function removeEdit (e) {
+async function removeEdit (e) {
   let plainId = e.target.id;
   resultId = plainId.split('_');
   plainId = plainId.substring(1);
@@ -444,10 +458,29 @@ function removeEdit (e) {
   if (Number.isInteger(rowId) && rowId > 0) {
     if (confirm("You are about to remove this row. Continue?")) {
       console.log('Yes!');
-      removeRow(rowId);
-      $(document).ajaxStop(function(){
-        window.location.reload();
-      });
+      let id = rowId;
+      // ajax
+      // removeRow(rowId);
+      const removeRow = { user_id, demo, id }  
+      try { 
+        const response = await fetch('<?=$dir?>/api/valu_remove.php', { 
+          method: 'POST', 
+          body: JSON.stringify(removeRow) 
+        });    
+        if (!response.ok) { 
+          console.log('Not OK');
+          return; 
+        } 
+        const output = await response.json(); 
+        console.log(output);    
+        SuccessMessage('removeSaved');
+        window.location.reload();        
+      } catch (error) {
+        console.log(error);
+      }
+      // $(document).ajaxStop(function(){
+      //   window.location.reload();
+      // });
     } else {
       console.log('Cancel!');
     }
@@ -458,7 +491,7 @@ removetext.forEach(c => {
   c.addEventListener('click', removeEdit);
 });
 
-function saveEdit (e) {
+async function saveEdit (e) {
   let plainId = e.target.id;
   plainId  = plainId.substring(1);
   resultId = plainId.split('_');
@@ -470,10 +503,29 @@ function saveEdit (e) {
   edittext.innerHTML = textarea.value;
   let rowId = Number(resultId[2]);
   if (Number.isInteger(rowId) && rowId > 0) {
-    saveRow(rowId, textarea.value);
-
+    // ajax
+    // saveRow(rowId, textarea.value);    
+    // data: {action:'save',user_id:user_id,id:id,label:label,demo:demo},
+    let id = rowId;
+    let label = textarea.value;
+    const saveRow = { user_id, demo, id, label };
+    try { 
+      const response = await fetch('<?=$dir?>/api/valu_save.php', { 
+        method: 'POST', 
+        body: JSON.stringify(saveRow) 
+      });    
+      if (!response.ok) { 
+        console.log('Not OK');
+        return; 
+      } 
+      const output = await response.json(); 
+      console.log(output);    
+      SuccessMessage('editSaved');
+      // window.location.reload();        
+    } catch (error) {
+      console.log(error);
+    }
   }
-
 };
 const savetext = document.querySelectorAll(".savetext");
 savetext.forEach(c => {
@@ -497,10 +549,30 @@ function hideNewAdd (e) {
   });
   addnewadd.style.display = 'block';
 }
-function saveNewAdd (e) {
+async function saveNewAdd (e) {
   const id = e.target.id;
   const addtext = document.getElementById("new_addition_text");
-  newRow('a',addtext.value);
+  const type = 'a';
+  const label = addtext.value;
+  // ajax
+  // newRow('a',addtext.value);
+  const newRow = { user_id, demo, type, label }  
+  try { 
+    const response = await fetch('<?=$dir?>/api/valu_new.php', { 
+      method: 'POST', 
+      body: JSON.stringify(newRow) 
+    });    
+    if (!response.ok) { 
+      console.log('Not OK');
+      return; 
+    } 
+    const output = await response.json(); 
+    console.log(output);    
+    SuccessMessage('editSaved');
+    // window.location.reload();        
+  } catch (error) {
+    console.log(error);
+  }
   newAddRow.forEach(nwa => {
     nwa.style.display = 'none';
   });
@@ -528,10 +600,30 @@ function hideNewDed (e) {
   });
   addnewded.style.display = 'block';
 }
-function saveNewDed (e) {
+async function saveNewDed (e) {
   const id = e.target.id;
   const dedtext = document.getElementById("new_deduction_text");
-  newRow('d',dedtext.value);
+  const type = 'd';
+  const label = dedtext.value;
+  // ajax
+  // newRow('d',dedtext.value);
+  const newRow = { user_id, demo, type, label }  
+  try { 
+    const response = await fetch('<?=$dir?>/api/valu_new.php', { 
+      method: 'POST', 
+      body: JSON.stringify(newRow) 
+    });    
+    if (!response.ok) { 
+      console.log('Not OK');
+      return; 
+    } 
+    const output = await response.json(); 
+    console.log(output);    
+    SuccessMessage('editSaved');
+    // window.location.reload();        
+  } catch (error) {
+    console.log(error);
+  }
   newDedRow.forEach(nwa => {
     nwa.style.display = 'none';
   });
