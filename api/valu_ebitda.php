@@ -13,7 +13,7 @@ foreach ($valu_data as $key => $value) {
   }
 }
 // error_log("user_id: ".$user_id.", ebitda: ".$ebitda.", demo: ".$demo."\n", 3, "error_log"); 
-if ($user_id > 0 && $col > 0 && $ebitda > 0 && $demo == 'FALSE') {
+if ($user_id > 0 && $col > 0 && $ebitda >= 0 && $demo == 'FALSE') {
   $valuationSQL = "UPDATE `valu_cols` SET `ebitda` = ".$ebitda." WHERE `valu_cols`.`col_id` = ".$col." AND `valu_cols`.`user_id` = ".$user_id;
   $valuationvals = $wpdb->get_results($valuationSQL);
   $arry = array ("Message" => "Success"); 

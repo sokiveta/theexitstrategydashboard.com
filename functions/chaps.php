@@ -1,5 +1,5 @@
 <?php
-// Chapter Pages
+// Chapter list that goes on the bottom of each chapter page
 add_shortcode('chapterlist', 'chapter_list');
 function chapter_list () {
   global $wpdb;

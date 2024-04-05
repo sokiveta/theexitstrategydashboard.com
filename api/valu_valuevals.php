@@ -13,7 +13,8 @@ foreach ($valu_data as $key => $value) {
   }
 }
 // error_log("user_id: ".$user_id.", value: ".$value.", demo: ".$demo."\n", 3, "error_log"); 
-if ($user_id > 0 && $col_id > 0 && $row_id > 0 && $value > 0 && $demo == 'FALSE') {
+if ($value == "") { $value = 0; }
+if ($user_id > 0 && $col_id > 0 && $row_id > 0 && $value >= 0 && is_numeric($value) && $demo == 'FALSE') {
   $valuationSQL = "UPDATE `valu_vals` SET `value` = ".$value." WHERE `valu_vals`.`col_id` = ".$col_id." AND  `valu_vals`.`row_id` = ".$row_id." AND `valu_vals`.`user_id` = ".$user_id;
   $valuationvals = $wpdb->get_results($valuationSQL);
   $arry = array ("Message" => "Success"); 

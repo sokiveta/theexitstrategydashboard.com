@@ -33,8 +33,7 @@ async function saveRow (id, label) {
     } 
     const output = await response.json(); 
     console.log(output);    
-    SuccessMessage('editSaved');
-    // window.location.reload();        
+    SuccessMessage('editSaved');   
   } catch (error) {
     console.log(error);
   }
@@ -64,7 +63,7 @@ async function newRow (type,label) {
     const output = await response.json(); 
     console.log(output);    
     SuccessMessage('newSaved');
-    window.location.reload();        
+    window.location.reload();
   } catch (error) {
     console.log(error);
   }
@@ -417,6 +416,9 @@ console.log("column: "+column);
   let subaddtots = 0;
   add_vals.forEach((element, index, array) => {
     if (element.col == column) {
+      if (isNaN(element.val) || element.val == "") {
+        element.val = 0;
+      }
       subaddtots = subaddtots + element.val;
     }
   });
@@ -431,6 +433,9 @@ console.log("column: "+column);
   let subdedtots = 0;
   ded_vals.forEach((element, index, array) => {
     if (element.col == column) {
+      if (isNaN(element.val) || element.val == "") {
+        element.val = 0;
+      }
       subdedtots = subdedtots + element.val;
     }
   });
@@ -444,6 +449,9 @@ console.log("column: "+column);
   let ebitdavar = "#ebitda_"+column;
   let totsebi = document.querySelector("#ebitda_" + column);
   let ebitdaint = totsebi.value.replace(/[($,)]/g,'');
+  if (isNaN(ebitdaint) || ebitdaint == "") {
+    ebitdaint = 0;
+  }
   updateEbitda(column,ebitdaint);
   if (ebitdaint < 0)  { ebitdaint = 0; }
   ebitdaint  = parseInt(ebitdaint);
@@ -594,9 +602,7 @@ function removeEdit (e) {
     if (confirm("You are about to remove this row. Continue?")) {
       console.log('Yes!');
       removeRow(rowId);
-      $(document).ajaxStop(function(){
-        window.location.reload();
-      });
+      window.location.reload();
     } else {
       console.log('Cancel!');
     }

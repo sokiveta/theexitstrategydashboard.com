@@ -26,11 +26,12 @@ if ($user_id > 0 && $type != '' && $label != "" && $demo == 'FALSE') {
     (NULL, ".$user_id.", 4, ".$row_id.", 0),
     (NULL, ".$user_id.", 5, ".$row_id.", 0)";
     $wpdb->query($insertSQL);
-    echo "Success: new row added (".$label.")";
+    // echo "Success: new row added (".$label.")";
+    $arry = array ("Message" => "Success"); 
   } else {
-    echo "ERROR -- row_id: ".$row_id;
+    // echo "ERROR -- row_id: ".$row_id;
+    $arry = array ("Message" => "Error - row_id: ".$row_id); 
   }
-  $arry = array ("Message" => "Success"); 
 } else {
   $arry = array ("Message" => "Error - row_id: ".$row_id); 
 }

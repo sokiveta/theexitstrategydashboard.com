@@ -25,21 +25,21 @@ canc.forEach(c => {
 // Save Edits
 const saveEdit = async (e) => {
   e.preventDefault();
+  const plainId = e.target.id;
+  const resultId = plainId.split('_');
+  const employee_id = resultId[1];
+  const employee_status = document.getElementById('employee_remove_'+employee_id).checked === true ? 0 : 1;
+  const update_employee = {
+    user_id: user_id,
+    demo: demo,
+    employee_id: employee_id,
+    employee_name: document.getElementById('employee_name_'+employee_id).value,
+    employee_position: document.getElementById('employee_position_'+employee_id).value,
+    employee_email: document.getElementById('employee_email_'+employee_id).value,
+    employee_phone: document.getElementById('employee_phone_'+employee_id).value,
+    employee_status: employee_status
+  } 
   try {
-    const plainId = e.target.id;
-    const resultId = plainId.split('_');
-    const employee_id = resultId[1];
-    const employee_status = document.getElementById('employee_remove_'+employee_id).checked === true ? 0 : 1;
-    const update_employee = {
-      user_id: user_id,
-      demo: demo,
-      employee_id: employee_id,
-      employee_name: document.getElementById('employee_name_'+employee_id).value,
-      employee_position: document.getElementById('employee_position_'+employee_id).value,
-      employee_email: document.getElementById('employee_email_'+employee_id).value,
-      employee_phone: document.getElementById('employee_phone_'+employee_id).value,
-      employee_status: employee_status
-    } 
     const userBody = JSON.stringify(update_employee);
     const response = await fetch('<?=$dir?>/api/assign_update.php', { 
       method: 'POST', 

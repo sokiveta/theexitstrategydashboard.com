@@ -31,7 +31,7 @@ function tasks_table ($task, $type) {
   }
 
   $tasklist.= "<div class='task-container task-date-".$type."'>
-    <div class='task-id'><label><input type='checkbox' id='editchckbx_".$task->task_id."' class='editchckbx' /> <strong>".$task->task_id.". ".$task->task_title."</strong></label></div> 
+    <div class='task-id'><label><input type='checkbox' id='editchckbx_".$task->task_id."' class='editchckbx' /> <strong>".$task->chapter_id.".".$task->chapter_count." - ".$task->task_title."</strong></label></div> 
     <div class='task-due'><strong>".$duedate."</strong></div>";
   $tasklist.= "</div>";
 

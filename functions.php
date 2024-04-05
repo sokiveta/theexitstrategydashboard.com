@@ -52,10 +52,15 @@ if ($_SERVER['REQUEST_URI'] == $localpath."/" || $_SERVER['REQUEST_URI'] == $loc
   include("functions/dash.php");
 }
 
+if (strstr($_SERVER['REQUEST_URI'], "chapters") || $_SERVER['REQUEST_URI'] == $localpath."/demo/chapters-demo/") {
+  // main Chapters page button list
+  include("functions/chapters.php");
+}
+
 if (strstr($_SERVER['REQUEST_URI'], "chapters") || $_SERVER['REQUEST_URI'] == $localpath."/task-mgnt/" || $_SERVER['REQUEST_URI'] == $localpath."/demo/task-mgnt-demo/") {
-  // chapters task tmnt
+    // chapters task tmnt
   include("functions/buttons.php");
-  include("functions/chaps.php");
+  // include("functions/chaps.php");
   include("functions/tasks.php");
 }
 
