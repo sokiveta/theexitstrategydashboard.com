@@ -60,7 +60,7 @@ if (strstr($_SERVER['REQUEST_URI'], "chapters") || $_SERVER['REQUEST_URI'] == $l
 if (strstr($_SERVER['REQUEST_URI'], "chapters") || $_SERVER['REQUEST_URI'] == $localpath."/task-mgnt/" || $_SERVER['REQUEST_URI'] == $localpath."/demo/task-mgnt-demo/") {
     // chapters task tmnt
   include("functions/buttons.php");
-  // include("functions/chaps.php");
+  include("functions/chaps.php");
   include("functions/tasks.php");
 }
 

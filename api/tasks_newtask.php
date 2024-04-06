@@ -18,8 +18,16 @@ foreach ($task_info as $key => $value) {
   } 
 } 
 
+
+
 $today = date("Y-m-d");
-if ($user_id > 0 && $demo == 'FALSE') {  
+if ($user_id > 0 && $demo == 'FALSE' && $chapter_id > 0) {  
+
+  $chapter_taskssql = "SELECT count(*) AS count FROM `tasks` WHERE `chapter_id`=".$chapter_id." AND `user_id`=".$user_id;
+  // $taskssql = "SELECT count(*) AS count FROM `tasks` WHERE `chapter_id`=8 AND `user_id`=3";
+  $chapter_tasks = $wpdb->get_results($chapter_taskssql);
+  $chapter_count = (int) $chapter_tasks[0]->count + 1;
+
   $taskSQL = "INSERT INTO `tasks` (
     `task_title`,
     `task_description`,
@@ -30,6 +38,7 @@ if ($user_id > 0 && $demo == 'FALSE') {
     `task_date_edited`,
     `user_id`,
     `chapter_id`,
+    `chapter_count`,
     `employee_id`,
     `task_assigned_date`,
     `status_id`
@@ -43,6 +52,7 @@ if ($user_id > 0 && $demo == 'FALSE') {
     '0000-00-00',
     '".$user_id."',
     '".$chapter_id."',
+    '".$chapter_count."',
     '".$employee_id."',
     '".$today."',
     '3'
