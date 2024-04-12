@@ -151,6 +151,25 @@ function new_task_box ($atts) {
   return $newtaskbox;
 }
 
+// All tasks
+add_shortcode('tasksall', 'tasks_all');
+function tasks_all ($atts) {
+  global $wpdb;
+  global $current_user;
+  if (strstr($_SERVER['REQUEST_URI'], "/demo/")) {
+    $user_id = "3"; 
+  } else {
+    $user_id = $current_user->ID; 
+  }  
+  $all_task_table = "";
+  $tasksql = "SELECT * FROM tasks WHERE user_id = ".$user_id." AND status_id!=6 AND chapter_id=".$atts['chapter']." ORDER BY chapter_count ASC";
+  $tasks = $wpdb->get_results($tasksql);
+  foreach ( $tasks as $task ) {
+    $all_task_table .= tasks_table($task, "all");
+  }
+  return $all_task_table;
+}
+
 // Incomplete tasks
 add_shortcode('tasksincomplete', 'tasks_incomplete');
 function tasks_incomplete ($atts) {
