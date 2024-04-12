@@ -42,7 +42,7 @@ if ($user_id > 0 && is_array($task_ids) && $demo == 'FALSE') {
   $tasks = $wpdb->get_results($taskssql);
   if (count($tasks) > 0) {
     foreach ( $tasks as $task ) {      
-      $message.= "<div style='margin: 10px;'><strong>[".$task->task_id."] Task: ".$task->task_title."</strong><br />";
+      $message.= "<div style='margin: 10px;'><strong>[".$task->chapter_id.".".$task->chapter_count."] Task: ".$task->task_title."</strong><br />";
       $message.= "Status: "; 
       if ($task->task_edate != "0000-00-00") { 
         $message.= "Due: ".date("M j, Y", strtotime($task->task_edate));

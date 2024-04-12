@@ -21,7 +21,7 @@ function tasks_table ($task, $type) {
 
   $tasklist = "<div class='taskcard' id='taskcontainer_".$task->task_id."'>";
 
-  if ($type == "completed") {
+  if ($type == "completed" || $task->status_id == '5') {
     $duedate = "Completed";
     // $chckbx  = "<br />";
     $checkedcompleted = "checked";
