@@ -58,7 +58,8 @@ function assignments () {
 
         foreach ( $tasks as $task ) {
           $assignments.= "<div class='tasklist'>";
-          $assignments.= "<input type='checkbox' id='editchckbx_".$task->task_id."' class='editchckbx' /> <strong>[".$task->task_id."] Ch.".$task->chapter_id." ".$task->task_title."</strong>";
+          $assignments.= "<input type='checkbox' id='editchckbx_".$task->task_id."' class='editchckbx' /> <strong>[".$task->chapter_id.".".$task->chapter_count."] Ch.".$task->chapter_id." ".$task->task_title."</strong>";
+          // $task->task_id
 	  
 			if ($task->task_edate != "0000-00-00") {
 				$taskedate = strtotime($task->task_edate);
