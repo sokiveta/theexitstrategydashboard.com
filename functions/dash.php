@@ -84,7 +84,7 @@ function progress_chart ($atts) {
 		  $chapter_row[$tasksval->chapter_id]['green']++;
 		  $total_completed_tasks++;
 		} elseif ($tasksval->status_id == '3' || $tasksval->status_id == '1') {
-		  if (strtotime($today) > strtotime($tasksval->task_edate) && $tasksval->task_edate != "0000-00-00"){
+		  if (strtotime($today) > strtotime($tasksval->task_edate) && $tasksval->task_edate != "0000-00-00" && $tasksval->task_edate != NULL){
 			$chapter_row[$tasksval->chapter_id]['red']++;
 		  } else {
 			$chapter_row[$tasksval->chapter_id]['yellow']++;

@@ -26,7 +26,7 @@ function tasks_table ($task, $type) {
     // $chckbx  = "<br />";
     $checkedcompleted = "checked";
   } else {
-    $duedate = ($task->task_edate != "0000-00-00") ? "Due: ".date("m/d/Y", strtotime($task->task_edate)) : "No due date set";
+    $duedate = ($task->task_edate != "0000-00-00" && $task->task_edate != NULL) ? "Due: ".date("m/d/Y", strtotime($task->task_edate)) : "No due date set";
     $checkedcompleted = " ";
   }
 
